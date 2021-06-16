@@ -1,19 +1,15 @@
 @import "reset";
 @import "variables";
+@import "utils";
 
 body {
   font-size: $body-font;
   min-height: 100vh;
 }
 
-%flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 main {
-  @extend %flexCenter;
+  @include flexCenter;
   min-height: inherit;
 }
 
@@ -32,15 +28,12 @@ article {
 
 article:nth-of-type(1) {
   background: $bright-orange;
-  border-top-left-radius: $bRadius-mobile;
-  border-top-right-radius: $bRadius-mobile;
+  @include applyRadius($bRadius-mobile, ('tl', 'tr'));
   
   a {
     color: $bright-orange;
   }
 }
-
-
 
 article:nth-of-type(2) {
   background: $dark-cyan;
@@ -61,9 +54,8 @@ article:nth-of-type(3) {
 
 @media (min-width: $mobile) {
   article:nth-of-type(1) {
-    border-top-left-radius: $bRadius-desktop;
+    @include applyRadius($bRadius-desktop, ('tl', 'bl'));
     border-top-right-radius: 0px;
-    border-bottom-left-radius: $bRadius-desktop;
   }
   
   article:nth-of-type(3) {

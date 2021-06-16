@@ -1,0 +1,28 @@
+@mixin applyRadius($size: 5px, $side:'') {
+  @if $side == '' {
+    border-radius: $size;
+  } @else {
+    @each $s in $side {
+      @if $s == 'tl'{
+        border-top-left-radius: $size;
+      } @else if $s == 'tr' {
+        border-top-right-radius: $size;
+      } @else if $s == 'bl' {
+        border-bottom-left-radius: $size;
+      } @else if $s == 'br' {
+        border-bottom-right-radius: $size;
+      } @else {
+        $errTemp: "Invalid arg => ";
+        $errFin: #{$errTemp} + #{$side} + "!!! " + "Side must be one of these: tl, tr, bl, br";
+        
+        @error $errFin;
+      }
+    }
+  }
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
