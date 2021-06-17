@@ -1,0 +1,111 @@
+@import "reset";
+@import "variables";
+@import "utils";
+
+body {
+  background-color: $body-bg;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+}
+
+.header-banner {
+  height: 100px;
+  background: url(./images/bg-header-mobile.svg);
+  background-size: cover;
+  background-position: bottom;
+  background-color: $header-bg;
+}
+
+main {
+  padding: $main-mbl-pad-y 0;
+}
+
+.card {
+  position: relative;
+  width: 85%;
+  max-width: $m-card-with;
+  margin: 0.5em auto;
+  padding: 1.5em $card-mbl-pad-x;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: $bRadius;
+  background: #fff;
+}
+
+.card.recent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $recent-before-mbl-wid;
+  height: 100%;
+  border-top-left-radius: $card-recent-radius;
+  border-bottom-left-radius: $card-recent-radius;
+  background-color: $header-bg;
+}
+
+.card > * {
+  flex: 1 1 auto;
+}
+
+.logo {
+  position: absolute;
+  @include logo-position($logo-wid);
+}
+
+.main-info {
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid $pale-text-clr;
+}
+
+.company-name {
+  color: $header-bg;
+  font-size: 0.75rem;
+  margin-right: 1em;
+}
+
+.tags {
+  // display: inline-block;
+  padding: 0.7em 0.8em 0.3em;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  line-height: 0.65rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.new-tag {
+  background: $header-bg
+}
+
+.featured-tag {
+  background: #000;
+}
+
+.position-title {
+  margin: 1em 0;
+}
+
+.pale-text{
+  color: $pale-text-clr;
+  font-size: $pale-text-mbl-size;
+  font-weight: 500;
+}
+
+.tablets-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 0.75em;
+}
+
+.tablet {
+  flex: 0 0 auto;
+  // display: inline-block;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  background: $tablet-bg;
+  color: $header-bg;
+}
