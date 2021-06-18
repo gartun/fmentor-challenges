@@ -18,18 +18,65 @@ body {
 
 main {
   padding: $main-mbl-pad-y 0;
+  position: relative;
+}
+
+.chosen-tablets {
+  display: none;
+  justify-content: space-between;
+  margin: $cho-tab-mar;
+  width: $card-n-cho-tab-wid;
+  min-height: $chosen-tablets-min-h;
+  padding: 0.85em;
+  background: white;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.chosen-tablet.tablet{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 0.7rem;
+}
+
+.tablet-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.remove {
+  padding: 0.4em 0.6em;
+  font-size: .7rem;
+  background: $header-bg;
+  color: #fff;
+}
+
+.clear {
+  float: right;
+  background: none;
+  border: none;
+}
+
+main > .card + .card {
+  margin-top: 2em;
 }
 
 .card {
   position: relative;
-  width: 85%;
-  max-width: $m-card-with;
-  margin: 0.5em auto;
+  width: $card-n-cho-tab-wid;
+  max-width: $max-card-wid;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1.5em $card-mbl-pad-x;
   display: flex;
   flex-wrap: wrap;
   border-radius: $bRadius;
   background: #fff;
+  box-shadow: 0 8px 8px -4px $header-bg,
+              0 12px 10px -9px $header-bg;
 }
 
 .card.recent::before {

@@ -5,13 +5,21 @@ $pale-text-clr: hsl(180, 8%, 52%);
 $tablet-bg: hsl(180, 31%, 95%);
 
 // || Width 
-$m-card-with: 950px;
+$card-n-cho-tab-wid: 85%;
+$max-card-wid: 950px;
 $recent-before-mbl-wid: 5px;
 $logo-wid: 40px;
 
+// || Height
+$chosen-tablets-min-h: 2.15em;
+
 // || Padding
-$main-mbl-pad-y: 1.4em;
+$main-mbl-pad-y: 2em;
 $card-mbl-pad-x: $logo-wid / 2;
+
+// || Margin
+$chosen-tablets-mar-top: -#{$chosen-tablets-min-h / 2 + $main-mbl-pad-y};
+$cho-tab-mar: $chosen-tablets-mar-top auto 2em;
 
 // || Size
 $pale-text-mbl-size: 0.85rem;
