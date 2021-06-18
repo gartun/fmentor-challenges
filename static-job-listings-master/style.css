@@ -31,10 +31,15 @@ main {
   min-height: 2.15em;
   padding: 0.85em;
   background: white;
+  box-shadow: 0 6px 3px -2px gray;
 }
 
 .d-flex {
   display: flex !important;
+}
+
+.d-none {
+  display: none !important;
 }
 
 .chosen-tablet.tablet {
@@ -52,14 +57,22 @@ main {
 .remove {
   padding: 0.4em 0.6em;
   font-size: 0.7rem;
-  background: #5ba4a4;
+  background-color: #5ba4a4;
   color: #fff;
+}
+.remove:hover {
+  background-color: #000;
 }
 
 .clear {
   float: right;
   background: none;
   border: none;
+  color: #2c3a3a;
+}
+.clear:hover {
+  cursor: pointer;
+  color: #5ba4a4;
 }
 
 main > .card + .card {
@@ -133,6 +146,7 @@ main > .card + .card {
 
 .position-title {
   margin: 1em 0;
+  color: #5ba4a4;
 }
 
 .pale-text {
@@ -154,8 +168,12 @@ main > .card + .card {
   font-size: 0.9rem;
   padding: 0.4em 0.6em;
   border-radius: 4px;
-  background: #eef6f6;
+  background-color: #eef6f6;
   color: #5ba4a4;
+}
+.tablet:hover {
+  background-color: #5ba4a4;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

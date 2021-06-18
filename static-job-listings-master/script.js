@@ -5,10 +5,12 @@ window.onload = function() {
   
   var clrBtn = document.getElementsByClassName('clear')[0];
 
+  var cards = [].slice.call(document.getElementsByClassName('card'));
+  
   // bütün tablet sınıfını topla
   // ve arraye çevir.
   var tablets = [].slice.call(document.getElementsByClassName('tablet'));
-  ş
+  
   var chosenTablets = [];
   
   clrBtn.addEventListener('click', function() {
@@ -16,6 +18,9 @@ window.onload = function() {
     
     for(var i = 0; i < spans.length; i++) {
       tabWrapper.removeChild(spans[i]);
+      
+      chosenTablets.splice(0);
+      filterIt();
     }
     
     // seçilen tablet arrayini resetle
@@ -48,6 +53,8 @@ window.onload = function() {
     
     // yeni üyeyi sayfada göster
     displayChosenTablets('added');
+    
+    filterIt();
   }
   
   function displayChosenTablets(status, ind) {
@@ -110,5 +117,60 @@ window.onload = function() {
     
     chosenTablets.splice(ind, 1);
     displayChosenTablets('removed', ind);
+    filterIt();
+  }
+  
+  /*
+  ######### filter results #########
+  */
+  function filterIt() {
+    for(var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      
+      var cardTablets = [].slice.call(card.getElementsByClassName('tablet'));
+      
+      var vals = [];
+      for(var y = 0; y < cardTablets.length; y++) {
+        
+        vals.push(cardTablets[y].innerText);
+        
+      }
+      var allIncluded = false;
+      var existing = [];
+      
+      for(var j = 0; j < chosenTablets.length; j++) {
+        var choVal = chosenTablets[j];
+        
+        var ind = vals.indexOf(choVal);
+        if(ind === -1) break;
+        
+        existing.push(choVal);
+      }
+      
+      if(existing.length === chosenTablets.length) {
+        allIncluded = true;
+      } else {
+        allIncluded = false;
+      }
+      
+      if(!allIncluded) {
+        card.classList.add('d-none');
+      } else {
+        card.classList.remove('d-none');
+      }
+    }
+  }
+  
+  /*
+  ####### Güncelleri işaretle #######
+  */
+  var whens = [].slice.call(document.getElementsByClassName('when'));
+  
+  for(var i = 0; i < whens.length; i++) {
+    if(/1d|today/i.test(whens[i].innerText)) {
+      var card = whens[i].parentElement.parentElement.parentElement;
+      
+      card.classList.add('recent');
+    }
   }
 }

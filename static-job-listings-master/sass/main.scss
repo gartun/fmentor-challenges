@@ -29,10 +29,15 @@ main {
   min-height: $chosen-tablets-min-h;
   padding: 0.85em;
   background: white;
+  box-shadow: 0 6px 3px -2px gray;
 }
 
 .d-flex {
   display: flex !important;
+}
+
+.d-none {
+  display: none !important;
 }
 
 .chosen-tablet.tablet{
@@ -50,14 +55,24 @@ main {
 .remove {
   padding: 0.4em 0.6em;
   font-size: .7rem;
-  background: $header-bg;
+  background-color: $header-bg;
   color: #fff;
+  
+  &:hover {
+    background-color: #000;
+  }
 }
 
 .clear {
   float: right;
   background: none;
   border: none;
+  color: $clear-clr;
+  
+  &:hover {
+    cursor: pointer;
+    color: $header-bg;
+  }
 }
 
 main > .card + .card {
@@ -131,9 +146,10 @@ main > .card + .card {
 
 .position-title {
   margin: 1em 0;
+  color: $header-bg;
 }
 
-.pale-text{
+.pale-text {
   color: $pale-text-clr;
   font-size: $pale-text-mbl-size;
   font-weight: 500;
@@ -153,6 +169,11 @@ main > .card + .card {
   font-size: .9rem;
   padding: 0.4em 0.6em;
   border-radius: 4px;
-  background: $tablet-bg;
+  background-color: $tablet-bg;
   color: $header-bg;
+  
+  &:hover {
+    background-color: $header-bg;
+    color: #fff;
+  }
 }
