@@ -1,0 +1,46 @@
+.chosen-tablets {
+  display: none;
+  justify-content: space-between;
+  margin: $cho-tab-mar;
+  width: $card-n-cho-tab-wid;
+  min-height: $chosen-tablets-min-h;
+  padding: 0.85em;
+  background: white;
+  box-shadow: 0 6px 3px -2px gray;
+}
+
+.chosen-tablet.tablet{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 0.7rem;
+}
+
+.tablet-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.remove {
+  padding: 0.4em 0.6em;
+  font-size: .7rem;
+  background-color: $header-bg;
+  color: #fff;
+  
+  &:hover {
+    background-color: #000;
+  }
+}
+
+.clear {
+  float: right;
+  background: none;
+  border: none;
+  color: $clear-clr;
+  
+  &:hover {
+    cursor: pointer;
+    color: $header-bg;
+  }
+}
+

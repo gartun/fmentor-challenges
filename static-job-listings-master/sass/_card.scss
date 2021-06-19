@@ -1,0 +1,102 @@
+main > .card + .card {
+  margin-top: 2em;
+}
+
+.card {
+  position: relative;
+  width: $card-n-cho-tab-wid;
+  max-width: $max-card-wid;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5em $card-mbl-pad-x;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: $bRadius;
+  background: #fff;
+  box-shadow: 0 8px 8px -4px $header-bg,
+              0 12px 10px -9px $header-bg;
+}
+
+.card.recent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $recent-before-mbl-wid;
+  height: 100%;
+  border-top-left-radius: $card-recent-radius;
+  border-bottom-left-radius: $card-recent-radius;
+  background-color: $header-bg;
+}
+
+.card > * {
+  flex: 1 1 auto;
+}
+
+.logo {
+  position: absolute;
+  @include logo-position($logo-wid);
+}
+
+.main-info {
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid $pale-text-clr;
+}
+
+.company-name {
+  color: $header-bg;
+  font-size: $comp-name-mbl-size;
+  margin-right: 1em;
+}
+
+.tags {
+  padding: $tags-pad-mbl;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.new-tag {
+  background: $header-bg
+}
+
+.featured-tag {
+  background: #000;
+}
+
+.position-title {
+  margin: 1em 0;
+  
+  &:hover {
+    color: $header-bg;
+  }
+}
+
+.pale-text {
+  color: $pale-text-clr;
+  font-size: $pale-text-mbl-size;
+  font-weight: 500;
+}
+
+.tablets-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 0.75em;
+}
+
+.tablet {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  background-color: $tablet-bg;
+  color: $header-bg;
+  
+  &:hover {
+    background-color: $header-bg;
+    color: #fff;
+  }
+}

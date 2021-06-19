@@ -34,14 +34,6 @@ main {
   box-shadow: 0 6px 3px -2px gray;
 }
 
-.d-flex {
-  display: flex !important;
-}
-
-.d-none {
-  display: none !important;
-}
-
 .chosen-tablet.tablet {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -131,9 +123,8 @@ main > .card + .card {
   padding: 0.7em 0.8em 0.3em;
   border-radius: 10px;
   font-size: 0.65rem;
-  line-height: 0.65rem;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
 }
 
 .new-tag {
@@ -146,6 +137,8 @@ main > .card + .card {
 
 .position-title {
   margin: 1em 0;
+}
+.position-title:hover {
   color: #5ba4a4;
 }
 
@@ -174,6 +167,14 @@ main > .card + .card {
 .tablet:hover {
   background-color: #5ba4a4;
   color: #fff;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-none {
+  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

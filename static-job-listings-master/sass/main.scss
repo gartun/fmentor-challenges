@@ -1,37 +1,15 @@
 @import "reset";
 @import "variables";
 @import "utils";
+@import "body";
+@import "header";
+@import "common";
+@import "chosen-tablets";
+@import "card";
 
-body {
-  background-color: $body-bg;
-  font-family: "Spartan", sans-serif;
-  font-weight: 700;
-}
 
-.header-banner {
-  height: 100px;
-  background: url(./images/bg-header-mobile.svg);
-  background-size: cover;
-  background-position: bottom;
-  background-color: $header-bg;
-}
 
-main {
-  padding: $main-mbl-pad-y 0;
-  position: relative;
-}
-
-.chosen-tablets {
-  display: none;
-  justify-content: space-between;
-  margin: $cho-tab-mar;
-  width: $card-n-cho-tab-wid;
-  min-height: $chosen-tablets-min-h;
-  padding: 0.85em;
-  background: white;
-  box-shadow: 0 6px 3px -2px gray;
-}
-
+// || Utility classes for filtering
 .d-flex {
   display: flex !important;
 }
@@ -40,140 +18,3 @@ main {
   display: none !important;
 }
 
-.chosen-tablet.tablet{
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  font-size: 0.7rem;
-}
-
-.tablet-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.remove {
-  padding: 0.4em 0.6em;
-  font-size: .7rem;
-  background-color: $header-bg;
-  color: #fff;
-  
-  &:hover {
-    background-color: #000;
-  }
-}
-
-.clear {
-  float: right;
-  background: none;
-  border: none;
-  color: $clear-clr;
-  
-  &:hover {
-    cursor: pointer;
-    color: $header-bg;
-  }
-}
-
-main > .card + .card {
-  margin-top: 2em;
-}
-
-.card {
-  position: relative;
-  width: $card-n-cho-tab-wid;
-  max-width: $max-card-wid;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.5em $card-mbl-pad-x;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: $bRadius;
-  background: #fff;
-  box-shadow: 0 8px 8px -4px $header-bg,
-              0 12px 10px -9px $header-bg;
-}
-
-.card.recent::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: $recent-before-mbl-wid;
-  height: 100%;
-  border-top-left-radius: $card-recent-radius;
-  border-bottom-left-radius: $card-recent-radius;
-  background-color: $header-bg;
-}
-
-.card > * {
-  flex: 1 1 auto;
-}
-
-.logo {
-  position: absolute;
-  @include logo-position($logo-wid);
-}
-
-.main-info {
-  padding-bottom: 0.75em;
-  border-bottom: 1px solid $pale-text-clr;
-}
-
-.company-name {
-  color: $header-bg;
-  font-size: 0.75rem;
-  margin-right: 1em;
-}
-
-.tags {
-  // display: inline-block;
-  padding: 0.7em 0.8em 0.3em;
-  border-radius: 10px;
-  font-size: 0.65rem;
-  line-height: 0.65rem;
-  text-transform: uppercase;
-  color: white;
-}
-
-.new-tag {
-  background: $header-bg
-}
-
-.featured-tag {
-  background: #000;
-}
-
-.position-title {
-  margin: 1em 0;
-  color: $header-bg;
-}
-
-.pale-text {
-  color: $pale-text-clr;
-  font-size: $pale-text-mbl-size;
-  font-weight: 500;
-}
-
-.tablets-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 0.75em;
-}
-
-.tablet {
-  flex: 0 0 auto;
-  // display: inline-block;
-  font-weight: 700;
-  font-size: .9rem;
-  padding: 0.4em 0.6em;
-  border-radius: 4px;
-  background-color: $tablet-bg;
-  color: $header-bg;
-  
-  &:hover {
-    background-color: $header-bg;
-    color: #fff;
-  }
-}

@@ -17,12 +17,14 @@ $chosen-tablets-min-h: 2.15em;
 // || Padding
 $main-mbl-pad-y: 2em;
 $card-mbl-pad-x: $logo-wid / 2;
+$tags-pad-mbl: 0.7em 0.8em 0.3em;
 
 // || Margin
 $chosen-tablets-mar-top: -#{$chosen-tablets-min-h / 2 + $main-mbl-pad-y};
 $cho-tab-mar: $chosen-tablets-mar-top auto 2em;
 
 // || Size
+$comp-name-mbl-size: 0.75rem;
 $pale-text-mbl-size: 0.85rem;
 
 // || Radius 
