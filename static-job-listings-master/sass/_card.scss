@@ -1,20 +1,31 @@
 main > .card + .card {
-  margin-top: 2em;
+  margin-top: $card-top-margin-mbl;
+
+   @include media($tablet) {
+     margin-top: $card-top-margin-desktop;
+   }
 }
+
 
 .card {
   position: relative;
   width: $card-n-cho-tab-wid;
-  max-width: $max-card-wid;
+  max-width: $max-card-n-cho-wid;
   margin-left: auto;
   margin-right: auto;
   padding: 1.5em $card-mbl-pad-x;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   border-radius: $bRadius;
   background: #fff;
   box-shadow: 0 8px 8px -4px $header-bg,
               0 12px 10px -9px $header-bg;
+  @include media($tablet) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .card.recent::before {
@@ -29,32 +40,52 @@ main > .card + .card {
   background-color: $header-bg;
 }
 
-.card > * {
-  flex: 1 1 auto;
-}
-
 .logo {
   position: absolute;
   @include logo-position($logo-wid);
+
+  @include media($tablet) {
+    position: static;
+    width: 80px;
+    margin-right: 0.75em;
+  }
+
+  @include media($laptop) {
+    width: 100px;
+  }
 }
 
 .main-info {
   padding-bottom: 0.75em;
   border-bottom: 1px solid $pale-text-clr;
+
+  @include media($tablet) {
+    border-bottom: none;
+    margin-right: auto;
+    padding-bottom: none;
+  }
 }
 
 .company-name {
   color: $header-bg;
   font-size: $comp-name-mbl-size;
   margin-right: 1em;
+
+  @include media($tablet) {
+    font-size: 0.95rem;
+  }
 }
 
 .tags {
   padding: $tags-pad-mbl;
   border-radius: 10px;
-  font-size: 0.65rem;
+  font-size: $tags-mbl-size;
   text-transform: uppercase;
   color: #fff;
+
+  @include media($tablet) {
+    font-size: 0.75rem;
+  }
 }
 
 .new-tag {
@@ -67,9 +98,10 @@ main > .card + .card {
 
 .position-title {
   margin: 1em 0;
-  
+  white-space: nowrap;
   &:hover {
     color: $header-bg;
+    cursor: pointer;
   }
 }
 
@@ -77,13 +109,23 @@ main > .card + .card {
   color: $pale-text-clr;
   font-size: $pale-text-mbl-size;
   font-weight: 500;
+
+  & > span + span {
+    margin-left: 0.25em;
+  }
 }
 
 .tablets-wrapper {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 8px;
   padding-top: 0.75em;
+
+@include media($tablet) {
+    padding-top: 0;
+    justify-content: flex-end;
+  }
 }
 
 .tablet {
@@ -98,5 +140,6 @@ main > .card + .card {
   &:hover {
     background-color: $header-bg;
     color: #fff;
+    cursor: pointer;
   }
 }

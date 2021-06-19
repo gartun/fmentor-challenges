@@ -1,4 +1,8 @@
 main {
   padding: $main-mbl-pad-y 0;
   position: relative;
+
+  @include media($tablet) {
+    padding: $main-desktop-pad-y 0;
+  }
 }

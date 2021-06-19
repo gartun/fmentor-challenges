@@ -4,3 +4,9 @@
   left: $w / 2;
   width: $w;
 }
+
+@mixin media($query) {
+  @media (min-width: $query) {
+    @content;
+  }
+}

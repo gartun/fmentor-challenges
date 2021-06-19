@@ -4,4 +4,11 @@
   background-size: cover;
   background-position: bottom;
   background-color: $header-bg;
+  background-repeat: no-repeat;
+
+  @include media($tablet) {
+    background: url(./images/bg-header-desktop.svg);
+    height: 150px;
+    background-color: $header-bg;
+  }
 }

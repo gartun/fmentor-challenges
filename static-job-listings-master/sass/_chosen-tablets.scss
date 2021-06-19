@@ -1,18 +1,28 @@
 .chosen-tablets {
   display: none;
   justify-content: space-between;
-  margin: $cho-tab-mar;
+  margin: $cho-tab-mbl-mar;
   width: $card-n-cho-tab-wid;
   min-height: $chosen-tablets-min-h;
+  max-width: $max-card-n-cho-wid;
   padding: 0.85em;
   background: white;
   box-shadow: 0 6px 3px -2px gray;
+
+  @include media($tablet) {
+    margin: $cho-tab-desktop-mar;
+    padding: 1.25em;
+  }
 }
 
 .chosen-tablet.tablet{
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   font-size: 0.7rem;
+
+  @include media($tablet) {
+    font-size: 1.125rem;
+  }
 }
 
 .tablet-wrapper {
@@ -29,6 +39,11 @@
   
   &:hover {
     background-color: #000;
+    cursor: pointer;
+  }
+
+  @include media($tablet) {
+    font-size: 1.125rem;
   }
 }
 
@@ -41,6 +56,11 @@
   &:hover {
     cursor: pointer;
     color: $header-bg;
+    text-decoration: underline;
+  }
+
+  @include media($tablet) {
+    font-size: 1.4rem;
   }
 }
 

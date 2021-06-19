@@ -1,3 +1,9 @@
+// || Devices 
+$desktop: 1440px;
+$laptop: 1200px;
+$tablet: 768px;
+$phone: 375px;
+
 // || Colors 
 $body-bg: hsl(180, 52%, 96%);
 $header-bg: hsl(180, 29%, 50%);
@@ -7,7 +13,7 @@ $clear-clr: hsl(180, 14%, 20%);
 
 // || Width 
 $card-n-cho-tab-wid: 85%;
-$max-card-wid: 950px;
+$max-card-n-cho-wid: 950px;
 $recent-before-mbl-wid: 5px;
 $logo-wid: 40px;
 
@@ -16,17 +22,24 @@ $chosen-tablets-min-h: 2.15em;
 
 // || Padding
 $main-mbl-pad-y: 2em;
+$main-desktop-pad-y: 3.75em;
 $card-mbl-pad-x: $logo-wid / 2;
 $tags-pad-mbl: 0.7em 0.8em 0.3em;
 
 // || Margin
-$chosen-tablets-mar-top: -#{$chosen-tablets-min-h / 2 + $main-mbl-pad-y};
-$cho-tab-mar: $chosen-tablets-mar-top auto 2em;
+$chosen-tablets-mbl-mar-top: -#{$chosen-tablets-min-h / 2 + $main-mbl-pad-y};
+$chosen-tablets-desktop-mar-top: -#{$chosen-tablets-min-h / 2 + $main-desktop-pad-y};
+$cho-tab-mbl-mar: $chosen-tablets-mbl-mar-top auto 2em;
+$cho-tab-desktop-mar: $chosen-tablets-desktop-mar-top auto 2em;
+$card-top-margin-mbl: 2em;
+$card-top-margin-desktop: 3.75em;
 
 // || Size
 $comp-name-mbl-size: 0.75rem;
 $pale-text-mbl-size: 0.85rem;
+$tags-mbl-size: 0.55rem;
 
 // || Radius 
 $bRadius: 8px;
 $card-recent-radius: 5px;
+
