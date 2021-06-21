@@ -1,12 +1,12 @@
 @import "reset";
 @import "variables";
 @import "utils";
+@import "utility-classes";
 
 body {
   font-size: $body-font;
   min-height: 100vh;
 }
-
 
 main {
   @include flexCenter;
@@ -14,22 +14,44 @@ main {
 }
 
 section {
-  width: 85%;
-  max-width: 1000px;
+  width: 93%;
+  max-width: $sec-max-w-mbl;
   margin: 4em auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  @include media($laptop) {
+    flex-direction: row;
+
+    max-width: $sec-max-w-laptop;
+  }
 }
 
 article {
-  flex: 1 0 250px;
+  position: relative;
   padding: 2.3em;
+
+  @include media($laptop) {
+    flex-basis: 33.3333%;
+    padding-bottom: 7.75em;
+  }
 }
 
 article:nth-of-type(1) {
   background: $bright-orange;
+
+  // apply radius for top left and top right on mobile
   @include applyRadius($bRadius-mobile, ('tl', 'tr'));
   
+  @include media($laptop) {
+    // apply radius for top left and bottom left after 1000px
+    @include applyRadius($bRadius-laptop, ('tl', 'bl'));
+
+    // remove radius as now flex-direction is row, 
+    // it looks weird when articles come side to side
+    border-top-right-radius: 0px;
+  }
+
   a {
     color: $bright-orange;
   }
@@ -45,25 +67,22 @@ article:nth-of-type(2) {
 
 article:nth-of-type(3) {
   background: $very-dark-cyan;
-  border-bottom-left-radius: $bRadius-mobile;
-  border-bottom-right-radius: $bRadius-mobile;
+
+  // apply radius for bottom left and bottom right on mobile
+  @include applyRadius($bRadius-mobile, ('bl', 'br'));
+
+  @include media($laptop) {
+    // apply radius for top right and bottom right on mobile
+    @include applyRadius($bRadius-laptop, ('tr', 'br'));
+
+    border-bottom-left-radius: 0px;
+  }
+
   a {
     color: $very-dark-cyan;
   }
 }
 
-@media (min-width: $mobile) {
-  article:nth-of-type(1) {
-    @include applyRadius($bRadius-desktop, ('tl', 'bl'));
-    border-top-right-radius: 0px;
-  }
-  
-  article:nth-of-type(3) {
-    border-top-right-radius: $bRadius-desktop;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: $bRadius-desktop;
-  }
-}
 
 article p, article h2 {
   color: $parag-white;
@@ -95,5 +114,11 @@ a.learnmore {
   &:hover, &:focus {
     background: transparent;
     color: $parag-white;
+  }
+
+  @include media($laptop) {
+    position: absolute;
+    bottom: 2.3em;
+    left: 2.3em;
   }
 }

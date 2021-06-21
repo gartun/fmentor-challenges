@@ -1,3 +1,4 @@
+// || Colors 
 $bright-orange: hsl(31, 77%, 52%);
 $dark-cyan: hsl(184, 100%, 22%);
 $very-dark-cyan: hsl(179, 100%, 13%);
@@ -5,10 +6,19 @@ $very-dark-cyan: hsl(179, 100%, 13%);
 $parag-white: hsla(0, 0%, 100%, 0.75);
 $very-light-gray: hsl(0, 0%, 95%);
 
+// || Font
 $body-font: 15px;
 
+// || Device Size
 $mobile: 375px;
+$tablet: 768px;
+$laptop: 1024px;
 $desktop: 1440px;
 
+// || Radius
 $bRadius-mobile: 8px;
-$bRadius-desktop: 14px;
+$bRadius-laptop: 14px;
+
+// || Width
+$sec-max-w-mbl: 500px;
+$sec-max-w-laptop: $laptop; 
