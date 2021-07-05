@@ -1,0 +1,1 @@
+!function(){"use strict";console.log("nerelerdesin"),console.log("hwllo world")}();

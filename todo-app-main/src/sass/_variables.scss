@@ -1,0 +1,39 @@
+// || Devices
+$laptop: 1024px;
+
+// || Colors
+$bright-blue: hsl(220, 98%, 61%);
+$checked-bg: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+// Light Theme
+$content-bg-light: hsl(0, 0%, 98%);
+$body-bg-light: hsl(236, 33%, 92%);
+$light-grayish-blue: hsl(233, 11%, 84%);
+$dark-grayish-blue: hsl(236, 9%, 61%);
+$very-dark-grayish-blue: hsl(235, 19%, 35%);
+// Dark Theme
+$body-bg-dark: hsl(235, 21%, 11%);
+$content-bg-dark: hsl(235, 24%, 19%);
+$text-clr-dark-mode: hsl(234, 39%, 85%);
+$light-grayish-blue-dark-hover: hsl(236, 33%, 92%);
+$pale-text-dark-mode: hsl(234, 11%, 52%);
+$b-shadow-dark: hsl(233, 14%, 35%);
+$very-dark-grayish-blue-darker: hsl(237, 14%, 26%);
+
+$new-todo-wrapper-m-bttm-mobile: 0.75;
+$new-todo-wrapper-pad-y-mobile: 0.3;
+
+// || Padding
+$cont-wra-mbl-pad-x : 0.8em;
+
+$app-name-f-size: 1.3rem;
+
+$first-wrapper-m-bttm-mobile: 1.2em;
+
+// || Height
+$header-mbl-height: 175px;
+
+// || BG Images
+$header-mbl-bg-light: url("../images/bg-mobile-light.jpg");
+$header-mbl-bg-dark: url("../images/bg-mobile-dark.jpg");
+$header-laptop-bg-light: url("../images/bg-desktop-light.jpg");
+$header-laptop-bg-dark: url("../images/bg-desktop-dark.jpg");

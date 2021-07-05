@@ -1,0 +1,12 @@
+.active-filter {
+  color: $bright-blue !important;
+}
+
+.pale-text {
+  color: $dark-grayish-blue !important;
+}
+
+.b-shadow {
+  box-shadow: 0px 8px 10px 0px $light-grayish-blue,
+              0px 8px 20px 0px $light-grayish-blue;
+}
