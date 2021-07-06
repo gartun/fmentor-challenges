@@ -31,38 +31,38 @@
     
     <div class="content-wrapper new-todo-wrapper">
       <p>
-      <span role="checkbox" tabindex="0"></span>
+      <span role="checkbox" id="add-checkbox" tabindex="0"></span>
       <input type="text" id="new-todo" placeholder="Create a new Todo..." />
       </p>
     </div>
 
     <div role="list" class="todo-ul content-wrapper">
       <p role="listitem">
-        <span role="checkbox" tabindex="0"></span>
+        <span role="checkbox" class="complete-checkbox" tabindex="0"></span>
         <span>Finish the alSanaİş app</span>
-        <button>&times;</button>
+        <button>x</button>
       </p>
 
       <p role="listitem">
-        <span role="checkbox" tabindex="0"></span>
+        <span role="checkbox" class="complete-checkbox" tabindex="0"></span>
         <span>Finish the alSanaİş app</span>
-        <button>&times;</button>
+        <button>x</button>
       </p>
 
       <p role="listitem">
-        <span role="checkbox" tabindex="0"></span>
+        <span role="checkbox" class="complete-checkbox" tabindex="0"></span>
         <span>Finish the alSanaİş app</span>
-        <button>&times;</button>
+        <button>x</button>
       </p>
 
       <p role="listitem" class="lastitem pale-text b-shadow">
         <span>
-          <span id="item-left">3 items left</span>
+          <span id="item-left"><span class="left-num"></span> items left</span>
         </span>
 
         <span class="filter-spans-wrapper-div laptop">
           <span class="pale-text">
-            <span class="filter">All</span>
+            <span class="filter active-filter">All</span>
             <span class="filter">Active</span>
             <span class="filter">Completed</span>
           </span>
