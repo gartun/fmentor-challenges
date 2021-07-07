@@ -19,7 +19,7 @@ module.exports = {
       }
     ]
   },
-  mode: "production",
+  mode: "development",
   target: ["web" ,"es5"],
   devServer: {
     contentBase: './dist',
