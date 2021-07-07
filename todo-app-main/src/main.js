@@ -1,10 +1,18 @@
+/* ####### Polyfills for ... ####### */
+Element.prototype.remove = Element.prototype.remove || function() {
+  this.parentElement && this.parentElement.removeChild(this);
+}
+/* ####### ... you guessed it right! for IE ####### */
+
 const modeBtn     = document.querySelector(".mode"),
       addCheckbox = document.getElementById("add-checkbox"),
       newTodo     = document.getElementById("new-todo"),
       todoUL      = document.getElementsByClassName("todo-ul")[0];
 
 modeBtn.addEventListener("click", function() {
+
   const bodyClassList = [].slice.call(document.body.classList);
+
   if(bodyClassList.indexOf("dark") > -1) {
     document.body.classList.remove("dark");
     document.querySelector(".mode > img").src = "./images/icon-moon.svg";
@@ -75,6 +83,7 @@ function filterTodos(filter) {
   }
 }
 
+
 newTodo.addEventListener("keydown", function(e) {
   if(e.keyCode === 13) {
     validateInp();
@@ -91,6 +100,7 @@ function validateInp() {
 
 function toggleCheckBox(elem) {
   elem.classList.toggle("checked");
+  updateTheLeftNumber();
 }
 
 function addNewTodo(todo) {
@@ -134,9 +144,6 @@ function addNewTodo(todo) {
 
   // add the p to the ul, as a first element at the top
   todoUL.insertBefore(p, todoUL.firstElementChild);
-
-  console.log(text, " UI eklendi");
-  console.log(p, " \n\n");
 
   // update the left number
   updateTheLeftNumber();
