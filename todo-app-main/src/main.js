@@ -15,10 +15,27 @@ modeBtn.addEventListener("click", function() {
   
 });
 
-function bindEventToCheckBoxes() {  
-  const completeCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
+function bindEventToRemoveBtns() {
+  const listitems = [].slice.call(document.querySelectorAll("[role='listitem']"));
 
-  completeCheckBoxes.forEach(function(cbox) {
+  listitems.forEach(function(lItem) {
+    const rmvBtn = lItem.getElementsByTagName("button")[0];
+
+    rmvBtn.addEventListener("click", function() {
+      removeItems(lItem)
+    });
+  })
+}
+
+function removeItems(elem) {
+  elem.remove();
+  updateTheLeftNumber();
+}
+
+function bindEventToCheckBoxes() {  
+  const allCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
+
+  allCheckBoxes.forEach(function(cbox) {
     cbox.addEventListener("click", function() {
       this.classList.toggle("checked");
       updateTheLeftNumber();
@@ -38,11 +55,17 @@ function updateTheLeftNumber() {
 }
 
 function updateTodos(filter) {
-  const completeCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
+  const allCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
+  const checkedCheckBoxes = [].slice.call(document.getElementsByClassName("checked"));
+
   if(filter === "all") {
-    completeCheckBoxes.forEach(function(cbox) {
+    allCheckBoxes.forEach(function(cbox) {
       cbox.parentElement.classList.remove("d-none");
     });
+  } else if(filter === "completed") {
+    checkedCheckBoxes.forEach(function(cbox) {
+      cbox.parentElement.classList.remove("d-none");
+    })
   }
 }
 
@@ -66,6 +89,10 @@ function validateInp() {
   newTodo.value = "";
 }
 
+function toggleCheckBox(elem) {
+  elem.classList.toggle("checked");
+}
+
 function addNewTodo(todo) {
   /*
     <p role="listitem">
@@ -81,6 +108,9 @@ function addNewTodo(todo) {
   checkboxSpan.setAttribute("role", "checkbox");
   checkboxSpan.setAttribute("class", "complete-checkbox");
   checkboxSpan.setAttribute("tabindex", "0");
+  checkboxSpan.addEventListener("click", function() {
+    toggleCheckBox(this);
+  })
 
   const textSpan = document.createElement("span");
   // we have to create the text node this way, adding a space up front
@@ -92,6 +122,10 @@ function addNewTodo(todo) {
   // create button
   const btn = document.createElement("button");
   btn.innerText = "x";
+  btn.addEventListener("click", function() {
+    removeItems(p)
+  });
+
 
   // add all of these to parent p element
   p.appendChild(checkboxSpan); 
@@ -101,12 +135,16 @@ function addNewTodo(todo) {
   // add the p to the ul, as a first element at the top
   todoUL.insertBefore(p, todoUL.firstElementChild);
 
-  // update the UI
-  updateUI()
+  console.log(text, " UI eklendi");
+  console.log(p, " \n\n");
+
+  // update the left number
+  updateTheLeftNumber();
 }
 
 function updateUI() {
   bindEventToCheckBoxes();
+  bindEventToRemoveBtns();
   updateTheLeftNumber();
 }
 
