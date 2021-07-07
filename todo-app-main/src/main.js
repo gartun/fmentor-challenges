@@ -2,12 +2,25 @@
 Element.prototype.remove = Element.prototype.remove || function() {
   this.parentElement && this.parentElement.removeChild(this);
 }
-/* ####### ... you guessed it right! for IE ####### */
+/* ####### ... -you guessed it right!- for IE ####### */
 
-const modeBtn     = document.querySelector(".mode"),
-      addCheckbox = document.getElementById("add-checkbox"),
-      newTodo     = document.getElementById("new-todo"),
-      todoUL      = document.getElementsByClassName("todo-ul")[0];
+const modeBtn           = document.querySelector(".mode"),
+      addCheckbox       = document.getElementById("add-checkbox"),
+      newTodo           = document.getElementById("new-todo"),
+      todoUL            = document.getElementsByClassName("todo-ul")[0],
+      clearCompletedBtn = document.getElementsByClassName("clear-completed")[0];
+
+clearCompletedBtn.addEventListener("click", clearCompletedAll);
+
+function clearCompletedAll() {
+  const checkedBoxes = [].slice.call(document.getElementsByClassName("checked"));
+  if(checkedBoxes.length > 0) {
+    checkedBoxes.forEach(function(cbox) {
+      cbox.parentElement.remove();
+      updateTheLeftNumber()
+    });
+  }
+}
 
 modeBtn.addEventListener("click", function() {
 
@@ -24,18 +37,16 @@ modeBtn.addEventListener("click", function() {
 });
 
 function bindEventToRemoveBtns() {
-  const listitems = [].slice.call(document.querySelectorAll("[role='listitem']"));
+  const rmvBtns = [].slice.call(document.getElementsByClassName("rmv-btn"));
 
-  listitems.forEach(function(lItem) {
-    const rmvBtn = lItem.getElementsByTagName("button")[0];
-
+  rmvBtns.forEach(function(rmvBtn) {
     rmvBtn.addEventListener("click", function() {
-      removeItems(lItem)
+      removeItem(rmvBtn.parentElement)
     });
   })
 }
 
-function removeItems(elem) {
+function removeItem(elem) {
   elem.remove();
   updateTheLeftNumber();
 }
@@ -54,7 +65,7 @@ function bindEventToCheckBoxes() {
 function updateTheLeftNumber() {
   const completeCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
 
-  const numSpan = document.getElementsByClassName("left-num")[0];
+  const numSpan = document.getElementById("item-left");
 
   const checkedBoxes = [].slice.call(document.getElementsByClassName("checked"));
   const left = completeCheckBoxes.length - checkedBoxes.length;
@@ -133,7 +144,7 @@ function addNewTodo(todo) {
   const btn = document.createElement("button");
   btn.innerText = "x";
   btn.addEventListener("click", function() {
-    removeItems(p)
+    removeItem(p)
   });
 
 
