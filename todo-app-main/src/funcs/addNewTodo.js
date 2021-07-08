@@ -1,7 +1,10 @@
 const updateTheLeftNumber = require("./updateTheLeftNumber");
 const { updateTodos } = require("./updateTodos");
+const { bindDragEventsToItems } = require("./bindDragEventsToItems.js");
 
 const todoUL = document.getElementsByClassName("todo-ul")[0];
+
+
 
 function toggleCheckBox(elem) {
   elem.classList.toggle("checked");
@@ -22,6 +25,7 @@ const activeFilter = document.getElementsByClassName("active-filter")[0].innerTe
   const p = document.createElement("p");
   p.setAttribute("role", "listitem");
   p.setAttribute("class", "todo-item");
+  p.draggable = "true";
 
   const checkboxSpan = document.createElement("span");
   checkboxSpan.setAttribute("role", "checkbox");
@@ -62,6 +66,8 @@ const activeFilter = document.getElementsByClassName("active-filter")[0].innerTe
   // being added to list even though filter is completed and
   // that's not what we want.
   if(activeFilter.toLowerCase() === "completed") updateTodos("all");
+
+  bindDragEventsToItems()
 } 
 
 module.exports = {

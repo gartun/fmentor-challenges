@@ -1,28 +1,25 @@
 /* ####### Polyfills for ... ####### */
-Element.prototype.remove = Element.prototype.remove || function() {
-  this.parentElement && this.parentElement.removeChild(this);
-}
+require("./polyfills.js");
+
 /* ####### ... -you guessed it right!- for IE ####### */
 
-const bindEventToCheckBoxes   = require("./funcs/bindEventToCheckBoxes.js");
-const bindEventToRemoveBtns   = require("./funcs/bindEventToRemoveBtns.js");
-const updateTheLeftNumber     = require("./funcs/updateTheLeftNumber.js");
-const removeItem              = require("./funcs/removeItem.js");
-const clearCompletedAll       = require("./funcs/clearCompletedAll.js");
-const { addNewTodo }          = require("./funcs/addNewTodo.js");
-const { updateTodos }          = require("./funcs/updateTodos.js");
+const bindEventToCheckBoxes             = require("./funcs/bindEventToCheckBoxes.js");
+const bindEventToRemoveBtns             = require("./funcs/bindEventToRemoveBtns.js");
+const updateTheLeftNumber               = require("./funcs/updateTheLeftNumber.js");
+const removeItem                        = require("./funcs/removeItem.js");
+const clearCompletedAll                 = require("./funcs/clearCompletedAll.js");
+const { addNewTodo }                    = require("./funcs/addNewTodo.js");
+const { updateTodos }                   = require("./funcs/updateTodos.js");
+const { bindDragEventsToItems }         = require("./funcs/bindDragEventsToItems.js");
 
 const modeBtn           = document.querySelector(".mode"),
       addCheckbox       = document.getElementById("add-checkbox"),
       newTodo           = document.getElementById("new-todo"),
+      todoUL            = document.getElementsByClassName("todo-ul")[0],
       clearCompletedBtn = document.getElementsByClassName("clear-completed")[0],
       filterWords       = [].slice.call(document.getElementsByClassName("filter"));
 
-// If the device is not wider than 1024 px, remove the laptop filters
-// as they stop our queries before we reach the second filters group, phone filters
-// if(!window.matchMedia('(min-width: 1024px)').matches) {
-//   laptopFilters.remove()
-// }
+
 
 
 clearCompletedBtn.addEventListener("click", clearCompletedAll);
@@ -73,6 +70,7 @@ function validateInp() {
 function updateUI() {
   bindEventToCheckBoxes();
   bindEventToRemoveBtns();
+  bindDragEventsToItems();
   updateTheLeftNumber();
 }
 
