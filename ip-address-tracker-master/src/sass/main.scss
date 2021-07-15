@@ -1,0 +1,115 @@
+@import "variables";
+@import "utils";
+@import "base";
+
+header {
+	height: 200px;
+	background: linear-gradient(to left bottom, rgba(ghostwhite, 0.5), transparent), url("../images/pattern-bg.png");
+}
+
+#mapid {
+	height: calc(100vh - 180px);
+	width: 100vw;
+	border: 1px solid coral;
+}
+
+.info-wrapper {
+	position: absolute;
+	top: 0;
+	left: 5%;
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	&__info {
+		display: flex;
+		flex-wrap: wrap;
+		background: #fff;
+		padding: 1em 0;
+		border-radius: 15px;
+		box-shadow: 0 5rem 5rem -2.5rem rgb(0 0 0 / 10%);
+		text-align: center;
+
+		> div {
+			flex: 1 0 25%;
+			min-width: 300px;
+			padding: 0.33em 0;
+		}
+	}
+}
+
+.info-title {
+	font-size: 0.675rem;
+	color: gray;
+	text-transform: uppercase;
+	font-weight: 500;
+
+	@include media($desktop) {
+		font-size: 1rem
+	}
+
+	& + p {
+		font-size: 0.95rem;
+		font-weight: 700;
+
+		@include media($desktop) {
+			font-size: 1.3rem;
+		}
+	}
+}
+
+form {
+	display: flex;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto 0.75em;
+
+	@include media($tablet) {
+		margin-bottom: 1.5em;
+	}
+
+}
+
+input {
+	flex: 3 0 87%;
+	padding: 0.88em;
+	border: none;
+	border-top-left-radius: $form-radius;
+	border-bottom-left-radius: $form-radius;
+
+	@include media($desktop) {
+		font-size: 1.1rem;
+		padding: 1em;
+	}
+}
+
+button {
+	position: relative;
+	flex: 1 0 13%;
+	background: #000;
+	border: none;
+	border-top-right-radius: $form-radius;
+	border-bottom-right-radius: $form-radius;
+}
+
+button::before {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	height: $arrow-size;
+	width: $arrow-size;
+	background: transparent;
+	transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+	border-bottom: $arrow-border;
+	border-right: $arrow-border;
+
+	@include media($desktop) {
+		height: 15px;
+		width: 15px;
+	}
+}
+
+
+
+ 
