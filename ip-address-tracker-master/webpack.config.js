@@ -15,6 +15,9 @@ module.exports = {
       }
     ]
   },
+  "resolve": {
+    extensions: [".ts", ".js"]
+  },
   target: ['web', 'es5'],
   mode: 'production',
   devServer: {

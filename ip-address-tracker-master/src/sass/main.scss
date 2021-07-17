@@ -14,12 +14,11 @@ header {
 }
 
 .info-wrapper {
+	z-index: 9999;
 	position: absolute;
 	top: 0;
 	left: 5%;
 	width: 90%;
-	max-width: 1200px;
-	margin: 0 auto;
 
 	&__info {
 		display: flex;

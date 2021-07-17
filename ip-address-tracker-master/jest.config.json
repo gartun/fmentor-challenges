@@ -1,0 +1,12 @@
+{
+	"moduleFileExtensions": [
+		"ts",
+		"js"
+	],
+	"transform": {
+		"^.+\\.(js|ts)": "babel-jest"
+	},
+	"testRegex": "((\\.|/*.)(spec|test))\\.js?$",
+	"resetMocks": false,
+    "setupFiles": ["jest-localstorage-mock"]
+}
