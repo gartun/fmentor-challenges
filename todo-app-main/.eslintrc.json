@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "no-console": 1,
+        "default-case": 2,
+        "default-param-last": 2,
+        "no-eval": 2,
+        "no-new-wrappers": 2,
+        "no-sequences": 1
+    }
+}

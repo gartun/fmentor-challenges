@@ -107,7 +107,7 @@ span[role="checkbox"].checked + span {
 
 .todo-ul {
   margin-bottom: 1em;
-  
+
   @include media($laptop) {
     margin-bottom: 1.5em;
   }
@@ -151,7 +151,7 @@ p.lastitem {
 p.lastitem > button {
   font-size: 0.9em;
   color: inherit;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .filter-spans-wrapper-div p {

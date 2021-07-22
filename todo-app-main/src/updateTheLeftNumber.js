@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function () {
   const completeCheckBoxes = [].slice.call(document.getElementsByClassName("complete-checkbox"));
 
   const numSpan = document.getElementById("item-left");
@@ -7,4 +7,4 @@ module.exports = function() {
   const left = completeCheckBoxes.length - checkedBoxes.length;
 
   numSpan.innerText = left;
-}
+};

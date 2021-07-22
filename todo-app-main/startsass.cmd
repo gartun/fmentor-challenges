@@ -1,1 +1,0 @@
-sass --watch src\sass\main.scss dist\css\style.css --style=compressed

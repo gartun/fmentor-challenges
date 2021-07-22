@@ -1,20 +1,20 @@
-Element.prototype.remove = Element.prototype.remove || function() {
-  this.parentElement && this.parentElement.removeChild(this);
-}
+Element.prototype.remove =
+  Element.prototype.remove ||
+  function () {
+    this.parentElement && this.parentElement.removeChild(this);
+  };
 
 // Production steps of ECMA-262, Edition 5, 15.4.4.21
 // Reference: https://es5.github.io/#x15.4.4.21
 // https://tc39.github.io/ecma262/#sec-array.prototype.reduce
 if (!Array.prototype.reduce) {
-  Object.defineProperty(Array.prototype, 'reduce', {
-    value: function(callback /*, initialValue*/) {
+  Object.defineProperty(Array.prototype, "reduce", {
+    value: function (callback /*, initialValue*/) {
       if (this === null) {
-        throw new TypeError( 'Array.prototype.reduce ' +
-          'called on null or undefined' );
+        throw new TypeError("Array.prototype.reduce " + "called on null or undefined");
       }
-      if (typeof callback !== 'function') {
-        throw new TypeError( callback +
-          ' is not a function');
+      if (typeof callback !== "function") {
+        throw new TypeError(callback + " is not a function");
       }
 
       // 1. Let O be ? ToObject(this value).
@@ -37,8 +37,7 @@ if (!Array.prototype.reduce) {
         // 3. If len is 0 and initialValue is not present,
         //    throw a TypeError exception.
         if (k >= len) {
-          throw new TypeError( 'Reduce of empty array ' +
-            'with no initial value' );
+          throw new TypeError("Reduce of empty array " + "with no initial value");
         }
         value = o[k++];
       }

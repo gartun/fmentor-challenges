@@ -1,20 +1,30 @@
 const updateTheLeftNumber = require("./updateTheLeftNumber");
+const removeItem = require("./removeItem");
 const { updateTodos } = require("./updateTodos");
 const { bindDragEventsToItems } = require("./bindDragEventsToItems.js");
 
 const todoUL = document.getElementsByClassName("todo-ul")[0];
 
-
-
 function toggleCheckBox(elem) {
+  const activeFilter = document.getElementsByClassName("active-filter")[0].innerText.toLowerCase();
+
   elem.classList.toggle("checked");
   elem.parentElement.classList.toggle("completed");
+
+  // we have to update the list everytime we mark an item as completed
+  // because our list must be in sync with our filter. And we have to do
+  // it without changing the active filter, that's why we pass the
+  // current active filter as parameter.
+  // For Instance: we chose our filter as 'active', and then marked an item
+  // as completed, this item must be removed from the active list, otherwise
+  // it'd seem weird.
+  updateTodos(activeFilter);
 
   updateTheLeftNumber();
 }
 
 function addNewTodo(todo) {
-const activeFilter = document.getElementsByClassName("active-filter")[0].innerText;
+  const activeFilter = document.getElementsByClassName("active-filter")[0].innerText.toLowerCase();
   /*
     <p role="listitem">
       <span role="checkbox" class="complete-checkbox" tabindex="0"></span>
@@ -31,9 +41,9 @@ const activeFilter = document.getElementsByClassName("active-filter")[0].innerTe
   checkboxSpan.setAttribute("role", "checkbox");
   checkboxSpan.setAttribute("class", "complete-checkbox");
   checkboxSpan.setAttribute("tabindex", "0");
-  checkboxSpan.addEventListener("click", function() {
+  checkboxSpan.addEventListener("click", function () {
     toggleCheckBox(this);
-  })
+  });
 
   const textSpan = document.createElement("span");
   // we have to create the text node this way, adding a space up front
@@ -45,14 +55,13 @@ const activeFilter = document.getElementsByClassName("active-filter")[0].innerTe
   // create button
   const btn = document.createElement("button");
   btn.innerText = "x";
-  btn.addEventListener("click", function() {
-    removeItem(p)
+  btn.addEventListener("click", function () {
+    removeItem(p);
   });
 
-
   // add all of these to parent p element
-  p.appendChild(checkboxSpan); 
-  p.appendChild(textSpan); 
+  p.appendChild(checkboxSpan);
+  p.appendChild(textSpan);
   p.appendChild(btn);
 
   // add the p to the ul, as a first element at the top
@@ -65,12 +74,12 @@ const activeFilter = document.getElementsByClassName("active-filter")[0].innerTe
   // we are switching it to all because the new todo is
   // being added to list even though filter is completed and
   // that's not what we want.
-  if(activeFilter.toLowerCase() === "completed") updateTodos("all");
+  if (activeFilter === "tamamlanmış") updateTodos("tümü");
 
-  bindDragEventsToItems()
-} 
+  bindDragEventsToItems();
+}
 
 module.exports = {
-	addNewTodo,
-	toggleCheckBox
-}
+  addNewTodo,
+  toggleCheckBox
+};
