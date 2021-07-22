@@ -1,7 +1,14 @@
+const Sortable = require("sortablejs").Sortable;
+
 const todoUL = document.getElementsByClassName("todo-ul")[0];
 
 function bindDragEventsToItems() {
-  const items = [].slice.call(document.getElementsByClassName("todo-item"));
+  new Sortable(todoUL, {
+    animation: 150,
+    delayOnTouchOnly: true,
+    draggable: ".todo-item"
+  });
+  /*const items = [].slice.call(document.getElementsByClassName("todo-item"));
 
   items.forEach(function (item) {
     // eslint-disable-next-line
@@ -29,9 +36,10 @@ function bindDragEventsToItems() {
         todoUL.insertBefore(dragging, afterElement);
       }
     });
-  });
+  }); */
 }
 
+/*
 function getDragAfterElement(y) {
   const items = [].slice.call(document.querySelectorAll(".todo-item:not(.dragging)"));
 
@@ -50,7 +58,7 @@ function getDragAfterElement(y) {
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
 }
-
+*/
 module.exports = {
   bindDragEventsToItems
 };

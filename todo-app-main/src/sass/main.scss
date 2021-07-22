@@ -113,6 +113,14 @@ span[role="checkbox"].checked + span {
   }
 }
 
+.todo-item {
+  cursor: move;
+}
+
+.sortable-chosen {
+  opacity: 0.55;
+}
+
 p[role="listitem"] {
   font-size: 0.85rem;
   padding-top: 1em;

@@ -3,11 +3,7 @@ $laptop: 1024px;
 
 // || Colors
 $bright-blue: hsl(220, 98%, 61%);
-$checked-bg: linear-gradient(
-  to right bottom,
-  hsl(192, 100%, 67%),
-  hsl(280, 87%, 65%)
-);
+$checked-bg: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 // Light Theme
 $content-bg-light: hsl(0, 0%, 98%);
 $body-bg-light: hsl(236, 33%, 92%);

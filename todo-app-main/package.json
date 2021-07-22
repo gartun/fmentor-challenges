@@ -9,7 +9,7 @@
     "wpserver": "webpack serve",
     "lint": "eslint src/",
     "prettier": "prettier src/**/*.js",
-    "prettier:fix": "prettier --write src/**/*.js",
+    "prettier:fix": "prettier --write src/",
     "sass:w": "sass --watch src/sass/main.scss dist/css/style.css",
     "sass:comp": "sass src/sass/main.scss dist/css/style.css --style=compressed"
   },

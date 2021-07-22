@@ -1,3 +1,7 @@
+.d-none {
+  display: none;
+}
+
 [role="checkbox"]:focus,
 button:focus,
 .filter:focus {
@@ -58,8 +62,7 @@ body.dark {
   }
 
   .b-shadow {
-    box-shadow: 0px 8px 10px -6px $content-bg-dark,
-      0px 8px 20px -6px $content-bg-dark;
+    box-shadow: 0px 8px 10px -6px $content-bg-dark, 0px 8px 20px -6px $content-bg-dark;
   }
 
   .pale-text * {
