@@ -5,7 +5,6 @@ const todoUL = document.getElementsByClassName("todo-ul")[0];
 function bindDragEventsToItems() {
   new Sortable(todoUL, {
     animation: 150,
-    delayOnTouchOnly: true,
     draggable: ".todo-item"
   });
   /*const items = [].slice.call(document.getElementsByClassName("todo-item"));
