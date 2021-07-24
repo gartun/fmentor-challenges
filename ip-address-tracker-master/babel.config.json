@@ -3,14 +3,20 @@
     [
       "@babel/env",
       {
-      	"useBuiltIns": "usage",
-      	"corejs": { "version": 3 }
-      	
+        "useBuiltIns": "usage",
+        "corejs": { "version": 3 },
+        "modules": false
       }
     ],
     [
        "@babel/typescript"	
     ]
+  ],
+
+  "sourceType": "unambiguous",
+
+  "ignore": [
+    "core-js"
   ],
 
   "env": {

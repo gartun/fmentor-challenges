@@ -1,3 +1,6 @@
+const supportsLocalStorage = typeof window.localStorage !== "undefined";
+
+import axios from "axios";
 import updateInfo from "../updateInfo";
 import getFromStorage from "../storage/getFromStorage";
 import saveToStorage from "../storage/saveToStorage";
@@ -30,7 +33,7 @@ const fetchData = async (queryKey?: string, queryValue?: string) => {
 
 	// when queryValue is undefined, we are going to use "home".
 	// we define it as default in function getFromStorage 				
-	let data: Result | null = getFromStorage(queryValue as string);
+	let data: Result | null = supportsLocalStorage ? getFromStorage(queryValue as string) : null;
 
 	if(queryKey == undefined) {
 		// If there's no queryKey arg then make api call
@@ -46,13 +49,13 @@ const fetchData = async (queryKey?: string, queryValue?: string) => {
 		if(!data) {
 			// if we don't get data from storage, then 
 			// we make a call to api
-			const res: any = await fetch(url);
-			data = await res.json();
+			const res: any = await axios(url);
+			data = res.data;
 
 			// we are using queryValue as a key, and tha data as value.
 			// when queryValue is undefined, we are going to use "home".
 			// we define it as default in function saveToStorage
-			saveToStorage(queryValue as string, data);
+			supportsLocalStorage && saveToStorage(queryValue as string, data);
 		}
 
 		updateInfo(data as Result);

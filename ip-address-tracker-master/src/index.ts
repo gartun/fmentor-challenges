@@ -1,6 +1,3 @@
-import isIp from "is-ip";
-import isValidDomain from "is-valid-domain";
-
 import createMap from "./createMap";
 import validate from "./validate";
 import findOutQuery from "./find-out-query/findOutQuery";
@@ -19,10 +16,11 @@ btn.addEventListener("click", (e: Event) => {
 	e.preventDefault();
 	
 	const isVal = validate(inp);
-
+	
 	if(isVal) {
-		const isIP = isIp(inp.value);
-		const isDomain = isValidDomain(inp.value);
+		const isIP = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(inp.value);
+
+		const isDomain = /^[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,}$/i.test(inp.value);
 
 		if(isIP) {
 			fetchData("ipAddress", inp.value);
@@ -31,7 +29,8 @@ btn.addEventListener("click", (e: Event) => {
 		} else {
 			alert("Hatalı bir ifade girdiniz...")
 		}
-	}
+	} else alert("Girdi alanını boş bıraktınız...")
+
 })
 
 document.addEventListener("DOMContentLoaded", () => {
