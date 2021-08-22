@@ -57,7 +57,7 @@ function validateInp() {
     return;
   }
 
-  alert("Girdi alananını boş bıraktınız;");
+  alert("Girdi alanını boş bıraktınız;");
 }
 
 function updateUI() {

@@ -1,0 +1,25 @@
+{
+  "name": "HYPE_case1",
+  "version": "1.0.0",
+  "description": "One of the cases that HYPE use for eliminating candidates",
+  "main": "index.js",
+  "scripts": {
+    "sass:c": "sass src/sass/main.scss src/styles.css --style=compressed",
+    "sass:w": "sass --watch src/sass/main.scss src/styles.css",
+    "pcss": "postcss --use autoprefixer -o dist/prefixed-styles.css src/styles.css",
+    "pcss:w": "postcss --use autoprefixer -o dist/prefixed-styles.css src/styles.css --watch",
+    "css:dev": "concurrently --kill-others \"yarn pcss:w\" \"yarn sass:w\" ",
+    "css:build": "yarn sass:c && yarn pcss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
