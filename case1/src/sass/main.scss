@@ -1,33 +1,7 @@
 @import "reset";
 @import "variables";
 @import "mixins";
-
-body {
-  min-height: 100vh;
-  background: url(bg-image.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: Montserrat, sans-serif;
-  overflow-x: hidden;
-}
-
-header {
-  width: 100%;
-  padding-top: 2em;
-
-  @include media(768px) {
-  	padding-top: 2.5em;
-  }
-}
-
-header > p {
-  text-align: center;
-}
-
-main {
-  position: relative;
-  width: 80%;
-}
+@import "base";
 
 .btn-group {
   width: 80%;
@@ -47,8 +21,8 @@ span[role="tab"] {
   letter-spacing: 0.1em;
   padding: 1.25em 0.75em;
   background: transparent;
-  color: ghostwhite;
-  border: 2px solid white;
+  color: $main-white;
+  border: 2px solid $main-white;
   text-align: center;
   cursor: pointer;
 
@@ -64,10 +38,10 @@ span[role="tab"] {
 .arrow {
   position: absolute;
   top: 50%;
-  border-bottom: 3px solid ghostwhite;
-  border-right: 3px solid ghostwhite;
-  height: 15px;
-  width: 15px;
+  border-bottom: $arr-border;
+  border-right: $arr-border;
+  height: $arr-size;
+  width: $arr-size;
   background: transparent;
   cursor: pointer;
 }
@@ -84,39 +58,16 @@ span[role="tab"] {
 
 .active {
   transition: background .5s, color .5s;
-  background: ghostwhite !important;
+  background: $main-white !important;
   color: #000 !important;
 }
 
 span[aria-controls="testimonials"] {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  @include tabRadius(left);
 }
 
 span[aria-controls="feedbacks"] {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-}
-
-section {
-  display: flex;
-  overflow: hidden;
-}
-
-section p {
-  flex: 0 0 100%;
-  color: ghostwhite;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-align: center;
-
-  @include media(768px) {
-  	font-size: 2.2rem;
-  }
-
-  @include media(1024px) {
-  	font-size: 3rem;
-  }
+  @include tabRadius(right);
 }
 
 .first-txt {
@@ -154,10 +105,10 @@ section p {
 
 .user-card {
   flex: 0 0 275px;
-  padding: 1em 1em;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  background: rgba(#000, 0.5);
   display: flex;
-  color: ghostwhite;
+  color: $main-white;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -167,8 +118,8 @@ section p {
 }
 
 [alt="user picture"] {
-  width: 70px;
-  height: 70px;
+  width: $user-pic-size;
+  height: $user-pic-size;
   border-radius: 50%;
   margin-right: 0.75em;
 }
@@ -182,7 +133,6 @@ section p {
   font-size: 0.75rem;
   font-weight: 300;
 }
-
 /* || UTILS start */
 .m-width-1500 {
   max-width: 1500px !important;

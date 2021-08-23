@@ -1,5 +1,17 @@
 @mixin media($size) {
-	@media (min-width: $size) {
-		@content;
-	}
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin tabRadius($side) {
+  @if $side == "left" {
+  	border-top-left-radius: $tab-radius;
+  	border-bottom-left-radius: $tab-radius;
+  } @else if $side == "right" {
+  	border-top-right-radius: $tab-radius;
+  	border-bottom-right-radius: $tab-radius;
+  } @else {
+  	@error "Side must be either left or right. Any other value is invalid."
+  }
 }

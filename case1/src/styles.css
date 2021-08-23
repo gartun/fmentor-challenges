@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
   background: url(bg-image.png);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: Montserrat, sans-serif;
-  overflow-x: hidden;
 }
 
 header {
@@ -30,6 +34,29 @@ header > p {
 main {
   position: relative;
   width: 80%;
+}
+
+section {
+  display: flex;
+  overflow: hidden;
+}
+
+section p {
+  flex: 0 0 100%;
+  color: ghostwhite;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  section p {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  section p {
+    font-size: 3rem;
+  }
 }
 
 .btn-group {
@@ -52,7 +79,7 @@ span[role=tab] {
   padding: 1.25em 0.75em;
   background: transparent;
   color: ghostwhite;
-  border: 2px solid white;
+  border: 2px solid ghostwhite;
   text-align: center;
   cursor: pointer;
 }
@@ -103,29 +130,6 @@ span[aria-controls=feedbacks] {
   border-bottom-right-radius: 25px;
 }
 
-section {
-  display: flex;
-  overflow: hidden;
-}
-
-section p {
-  flex: 0 0 100%;
-  color: ghostwhite;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  section p {
-    font-size: 2.2rem;
-  }
-}
-@media (min-width: 1024px) {
-  section p {
-    font-size: 3rem;
-  }
-}
-
 .first-txt {
   transition: margin 1s;
 }
@@ -164,7 +168,7 @@ section p {
 
 .user-card {
   flex: 0 0 275px;
-  padding: 1em 1em;
+  padding: 1em;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   color: ghostwhite;

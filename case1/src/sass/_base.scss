@@ -1,0 +1,46 @@
+body {
+  min-height: 100vh;
+  background: url(bg-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Montserrat, sans-serif;
+}
+
+header {
+  width: 100%;
+  padding-top: 2em;
+
+  @include media(768px) {
+  	padding-top: 2.5em;
+  }
+}
+
+header > p {
+  text-align: center;
+}
+
+main {
+  position: relative;
+  width: 80%;
+}
+
+section {
+  display: flex;
+  overflow: hidden;
+}
+
+section p {
+  flex: 0 0 100%;
+  color: ghostwhite;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+
+  @include media(768px) {
+    font-size: 2.2rem;
+  }
+
+  @include media(1024px) {
+    font-size: 3rem;
+  }
+}
