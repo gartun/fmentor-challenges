@@ -30,7 +30,12 @@ section {
 }
 
 section p {
-  flex: 0 0 100%;
+  // we can't use the line before because firefox
+  // gets buggy after margin-left -200%;
+  // flex: 0 0 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 100%;
   color: ghostwhite;
   font-weight: 700;
   font-size: 1.5rem;
